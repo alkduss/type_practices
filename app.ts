@@ -1,31 +1,26 @@
-//Objects
-const customer: {
-  name: string;
-  age: number;
-} = {
-  name: "Alex",
-  age: 44,
-};
-//Arrays
-const skills: string[] = ["Junior", "Senior", "Master"];
-//Tuples
-let file: [string, string, number] = ["Alex", "Loz", 44];
-//Enum
-enum statuss {
-  abierto,
-  pendiente,
-  cerrado,
+enum Role{
+  Doctor,
+  Engeener,
+  Teacher
 }
-let valor: number = 10;
-if (statuss.abierto == valor) {
-  console.log(statuss.abierto);
+class Avenger {
+  nombre: string;
+  equipo: string;
+  nombreReal: string;
+  puedePelear: boolean = false;
+  role:Role;
+  
+  constructor(nombre:string, equipo:string, nombreReal:string, role:Role){
+    this.nombre = nombre;
+    this.equipo = equipo;
+    this.nombreReal = nombreReal;
+    this.role = role;
+  }
+
+  Imprimir(){
+    console.log(this.role);
+  }
 }
-//Unions
-let vector: boolean | number = 10;
-vector = false;
-//Literals
-type level = 1 | 2 | 4 | 8;
-function nivel(difficulty: level) {
-  console.log("algo");
-}
-nivel(4);
+
+let antman:Avenger = new Avenger("Antman", "Avengers","Nicolas Grutts", Role.Doctor);
+antman.Imprimir();
